@@ -7,6 +7,8 @@ import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.google.common.base.Objects;
+
 import java.util.UUID;
 
 /**
@@ -75,5 +77,26 @@ public class Task {
 
     public boolean isActive(){
         return !mCompleted;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == this)return true;
+        if(obj==null || obj.getClass()!=getClass())return false;
+        Task task = (Task) obj;
+        return Objects.equal(task.mId,this.mId)&&
+                Objects.equal(task.mTitle,this.mTitle)&&
+                Objects.equal(task.mDescription,this.mDescription)&&
+                Objects.equal(task.mCompleted,this.mCompleted);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(mId,mTitle,mCompleted);
+    }
+
+    @Override
+    public String toString() {
+        return "task with title : " + mTitle;
     }
 }
