@@ -1,4 +1,4 @@
-package com.example.ly309313.demo_database.tasksdetail.model;
+package com.example.ly309313.demo_database.tasks.domain.model;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
@@ -35,7 +35,7 @@ public class Task {
     private final boolean mCompleted;
 
 
-    public Task(@NonNull String mId,@Nullable String mTitle,@Nullable String mDescription, boolean mCompleted) {
+    public Task(@NonNull String mId, @Nullable String mTitle, @Nullable String mDescription, boolean mCompleted) {
         this.mId = mId;
         this.mTitle = mTitle;
         this.mDescription = mDescription;
@@ -43,16 +43,16 @@ public class Task {
     }
 
     @Ignore
-    public Task(@Nullable String mTitle,@Nullable String mDescription) {
+    public Task(@Nullable String mTitle, @Nullable String mDescription) {
         this(UUID.randomUUID().toString(),mTitle,mDescription,false);
     }
     @Ignore
-    public Task(@Nullable String mTitle,@Nullable String mDescription, boolean mCompleted) {
+    public Task(@Nullable String mTitle, @Nullable String mDescription, boolean mCompleted) {
         this(UUID.randomUUID().toString(),mTitle,mDescription,mCompleted);
     }
 
     @Ignore
-    public Task(@NonNull String mId,@Nullable String mTitle,@Nullable String mDescription) {
+    public Task(@NonNull String mId, @Nullable String mTitle, @Nullable String mDescription) {
         this(mId,mTitle,mDescription,false);
     }
 
